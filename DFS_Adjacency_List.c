@@ -1,13 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 struct Node{
     int data;
     struct Node *next;
 }*root=NULL;
+
 struct Queue{
     int data;
     struct Queue *next;
 }*front=NULL,*rear=NULL;
+
 void Insert(struct Node **head,int data){
     struct Node *node=(struct Node *)malloc(sizeof(struct Node));
     node->data=data;
@@ -21,15 +24,18 @@ void Insert(struct Node **head,int data){
         p->next=node;
     }
 }
+
 void Insert_AL(struct Node **AL,int index,int data){
     Insert(&AL[index],data);
 }
+
 void Display(struct Node *p){
     while(p!=NULL){
         printf("%d\t",p->data);
         p=p->next;
     }
 }
+
 void Display_AL(struct Node **AL){
     int i;
     for(i=1;i<8;i+=1){
@@ -37,6 +43,7 @@ void Display_AL(struct Node **AL){
         printf("\n");
     }
 }
+
 void DFS(struct Node **AL,int visited[],int u){
     int v;
     printf("%d\t",u);
@@ -48,6 +55,7 @@ void DFS(struct Node **AL,int visited[],int u){
         p=p->next;
     }
 }
+
 int main(){
     struct Node **AL=(struct Node **)calloc(8,sizeof(struct Node));
     Insert_AL(AL,1,2);
